@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import javascript and css -->
+    <script src="js/highcharts.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Perceptron simple - RNA</title>
+</head>
+
+<body>
+    <h2 class="titulos">Percentron Simple - Redes Neuronales Artificiales</h2>
+
+    <div>
+        <div class="elementos">
+            <div class="moduloGenerador">
+                <div class="graficas" id="gProblema"></div>
+                <div class="controles">
+                    <button class="entrenar " type="button " onclick="generadorObject.generarPuntosEntrenamiento()">Gen. Conjunto De Entrenamiento </button>
+                    <button class="evaluar" type="button " onclick="generadorObject.generarPuntosEvaluacion()" id="geconeval">Gen. Conjunto De Evaluación </button>
+                    <button class="inicializar" type="button" onclick="generadorObject.reestablecerProblema()" id="reset">Reestablecer Conjuto</button>
+                </div>
+
+            </div>
+            <div class="moduloEntrenamiento">
+                <div class="graficas" id="gEntrenamiento"></div>
+                <div class="controles">
+                    <button class="inicializar" type="button " onclick="uPObject.inicializarUp()" id="iniciarup">Inicializar Neurona</button>
+                    <button class="entrenar" type="button " onclick="uPObject.entrenarUp()" id="entreauto">Entrenar -></button>
+                    <button class="entrenar" type="button " onclick="uPObject.pasoAPaso()" id="entrepaso"><-Paso A Paso (P)</button>
+                    <button class="evaluar " type="button " onclick="uPObject.cargarProblemaDeEvaluacion()" id="load">Carg. Conjunto De Evaluación</button>                    
+                    <button idclass="evaluar" type="button" onclick="uPObject.evaluarAprendizaje()" id="evaluate">Evaluar Aprendizaje</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contenedor">
+        <ul id="datos">
+            <li>w0: <span id="peso0" class="info"></span></li>
+            <li>w1: <span id="peso1" class="info"></span></li>
+            <li>w2: <span id="peso2" class="info"></span></li>
+            <li>Iteración: <span id="iteracion" class="info"></span></li>
+            <li>Tasa de error: <span id="error" class="info"></span></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+.titulos{
+    color: #ffffff;
+    background: #3b5998;
+    text-align: center;
+    width:100%;     
+}
+
+.graficas {
+    width:650px; 
+    height:500px;
+}
+
+.elementos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.controles{
+    display: flex;
+    justify-content: space-around;
+}
+
+#contenedor{
+     clear:both;
+ float:left;
+ overflow:hidden;
+ width:100%;
+}
+#datos{
+ float:left;
+ left:50%;
+ list-style-type:none;
+ margin:10 auto;
+ padding:10;
+ position:relative;
+}
+
+#datos li{
+    font-size: 14px;
+     float:left;
+ position:relative;
+ right:50%;
+}
+
+.info{
+    color: blue;
+    font-weight: 400;
+}
+
+.inicializar {
+    background-color:lightgreen;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer
+}
+.entrenar {
+    background-color: lightskyblue;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer
+}
+
+.evaluar{
+    background-color: lightpink;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer
+}
+
+
