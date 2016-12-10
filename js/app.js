@@ -15,6 +15,8 @@ var generadorObject = null;
 var cantidadPuntos = 100;
 var x0 = 1;
 var cantidadConjDeEvaluacion = 1000
+var cuadrado = Math.sqrt(cantidadConjDeEvaluacion);
+var division = 10 / cuadrado;
 
 //Colores
 var colorPuntosSinClasificar = '#EE0000';
@@ -344,7 +346,7 @@ var uP = function () {
         this.actualizarDatos();
         var puntosErrados = [];
         var puntosAcertados = [];
-        for (var i = 0; i < cantidadConjDeEvaluacion; i++) {
+        for (var i = 0; i < dataProblema.length; i++) {
             var signoUp = this.evaluarSignoUp(dataProblema[i][0], dataProblema[i][1]);
             var signoOri = puntosProblema[i].s;
             if (signoUp == signoOri) {
@@ -362,7 +364,7 @@ var uP = function () {
                 text: 'Resultado de evaluación'
             },
             subtitle: {
-                text: 'Nivel de precision de neurona ' + puntosAcertados.length * 100 / cantidadPuntos + ' %'
+                text: 'Nivel de precision de neurona ' + (puntosAcertados.length-1) * 100 / cantidadConjDeEvaluacion + ' %'
             },
             xAxis: {
                 title: {
@@ -574,22 +576,38 @@ var Generador = function () {
             this.s = s;
         };
 
-        while (nroPuntos < cantidadConjDeEvaluacion) {
-            var px = (Math.random() * 10).toFixed(2);
-            var py = (Math.random() * 10).toFixed(2);
-            var ps = this.evaluarSigno(px, py);
-            if (ps >= 0) {
-                pointsRed.push([parseFloat(px), parseFloat(py)]);
-            }
-            if (ps < 0) {
-                pointsBlue.push([parseFloat(px), parseFloat(py)]);
-            }
-            puntosProblema.push(new punto(this.x0, px, py, ps));
-            nroPuntos++;
-        }
 
-        for (var i = 0; i < cantidadPuntos * 10; i++) {
-            dataProblema.push([parseFloat(puntosProblema[i].punto[1]), parseFloat(puntosProblema[i].punto[2])]);
+
+        for (var i = 0; i < 10; i += division) {
+            for (var j = 0; j < 10; j += division) {
+                var px = (j).toFixed(2);
+                var py = (i).toFixed(2);
+                var ps = this.evaluarSigno(px, py);
+                if (ps >= 0) {
+                    pointsRed.push([parseFloat(px), parseFloat(py)]);
+                }
+                if (ps < 0) {
+                    pointsBlue.push([parseFloat(px), parseFloat(py)]);
+                }
+                puntosProblema.push(new punto(this.x0, px, py, ps));
+            }
+        }
+        // while (nroPuntos < cantidadConjDeEvaluacion) {
+        //     var px = (Math.random() * 10).toFixed(2);
+        //     var py = (Math.random() * 10).toFixed(2);
+        //     var ps = this.evaluarSigno(px, py);
+        //     if (ps >= 0) {
+        //         pointsRed.push([parseFloat(px), parseFloat(py)]);
+        //     }
+        //     if (ps < 0) {
+        //         pointsBlue.push([parseFloat(px), parseFloat(py)]);
+        //     }
+        //     puntosProblema.push(new punto(this.x0, px, py, ps));
+        //     nroPuntos++;
+        // }
+
+        for (var x = 0; x < puntosProblema.length; x++) {
+            dataProblema.push([parseFloat(puntosProblema[x].punto[1]), parseFloat(puntosProblema[x].punto[2])]);
         }
 
         this.graficarPuntosProblema();
