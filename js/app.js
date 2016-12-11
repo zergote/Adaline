@@ -364,7 +364,7 @@ var uP = function () {
                 text: 'Resultado de evaluación'
             },
             subtitle: {
-                text: 'Nivel de precision de neurona ' + (puntosAcertados.length) * 100 / dataProblema.length + ' %'
+                text: 'Nivel de precision de neurona ' + ((puntosAcertados.length) * 100 / dataProblema.length).toFixed(2) + ' %'
             },
             xAxis: {
                 title: {
