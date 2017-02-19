@@ -1,1 +1,1 @@
-" Perceptron-simple" [Demo](https://zergote.github.io/Perceptron-simple/)
+"Adaline" [Demo](https://zergote.github.io/RNA-Adaline/)
